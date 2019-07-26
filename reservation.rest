@@ -1,0 +1,46 @@
+@base_url = http://localhost:8000/api/reservation
+
+GET {{base_url}}
+
+###
+
+POST {{base_url}}
+Content-Type: application/json
+
+{
+    "client_name": "Anne",
+    "location": "Meeting Room 4"
+}
+
+###
+
+PUT {{base_url}}
+Content-Type: application/json
+
+{
+    "reservation_id": 1,
+    "client_name": "Bob",
+    "location": "Media Room"
+}
+
+###
+
+PATCH  {{base_url}}/2
+Content-Type: application/json
+
+[
+    {
+        "op": "replace",
+        "path": "clientName",
+        "value": "Bob"
+    },
+    {
+        "op": "replace",
+        "path": "location",
+        "value": "Lecture Hall"
+    }
+]
+
+###
+
+DELETE {{base_url}}/2
