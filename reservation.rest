@@ -28,18 +28,14 @@ Content-Type: application/json
 PATCH  {{base_url}}/2
 Content-Type: application/json
 
-[
-    {
-        "op": "replace",
-        "path": "clientName",
-        "value": "Bob"
-    },
-    {
-        "op": "replace",
-        "path": "location",
-        "value": "Lecture Hall"
-    }
-]
+{
+    "client_name": "Bob",
+    "location": "Lecture Hall"
+}
+
+###
+
+GET {{base_url}}/2
 
 ###
 

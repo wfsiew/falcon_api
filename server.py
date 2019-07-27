@@ -3,8 +3,11 @@ from resource import reservation_resource
 
 api = falcon.API()
 api.add_route('/reservation', reservation_resource.ReservationResource())
+api.add_route('/reservation/{id}', reservation_resource.ReservationUpdateResource())
 
-if __name__ == '__main__':
+reservation_resource.ReservationRepo.init()
+
+def main():
     cherrypy.tree.graft(api, '/api')
 
     cherrypy.server.unsubscribe()
@@ -19,3 +22,6 @@ if __name__ == '__main__':
 
     cherrypy.engine.start()
     cherrypy.engine.block()
+
+if __name__ == '__main__':
+    main()
